@@ -1,0 +1,22 @@
+[package]
+edition = "2021"
+name = "test_wrap"
+version = "0.0.1-dev"
+
+include = ["src"]
+
+[dependencies]
+polywrap-wasm-rs = {version = "0.12.0"}
+polywrap_msgpack_serde = "0.0.2-beta.7"
+serde = {version = "1.0", features = ["derive"]}
+
+[dev-dependencies]
+polywrap = {version = "0.1.9-beta.2"}
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+opt-level = 's'
+panic = 'abort'
